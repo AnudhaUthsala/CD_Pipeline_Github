@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                // Replace this with the build command for your Java web application
+                sh 'mvn clean package'
+            }
+        }
+        stage('Test') {
+            steps {
+                // Run the test script
+                sh 'mvn test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // Deploy the WAR file to Tomcat webapps directory
+                sh 'scp -i CD_Pipeline_Server_ppm /target/SimpleWebApp-3.0.war ec2-user@your-ec2-public-ip:/opt/tomcat/webapps/'
+            }
+        }
+    }
+}
