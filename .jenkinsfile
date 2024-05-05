@@ -1,6 +1,12 @@
 pipeline {
     agent any
     stages {
+        stage('Delay') {
+            steps {
+                // Introduce a delay of 1 minute (60 seconds)
+                sleep time: 60, unit: 'SECONDS'
+            }
+        }
         stage('Build') {
             steps {
                 // Replace this with the build command for your Java web application
