@@ -22,7 +22,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 // Deploy the WAR file to Tomcat webapps directory
-                sh 'scp -i CD_Pipeline_Server_ppm /target/SimpleWebApp-3.0.war ubuntu@3.27.245.64:/opt/tomcat/webapps/'
+                sh 'scp -i CD_Pipeline_Server_ppm /target/SimpleWebApp-3.0.war ubuntu@54.252.239.35:/opt/tomcat/webapps/'
             }
         }
     }
